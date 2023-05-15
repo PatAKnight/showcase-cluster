@@ -1,0 +1,3 @@
+Will need to figure out how to convert the manifests into the helm chart
+Have three environments (dev, qa, prod)
+Point to the helm-backstage in janus-idp

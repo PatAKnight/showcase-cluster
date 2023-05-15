@@ -1,0 +1,4 @@
+Will we want sonarqube and keycloak here?
+Definitely do not need certificates 
+Need to change ingress for these 
+Different namespaces
