@@ -1,0 +1,49 @@
+# Production values for showcase-chart.
+
+namespace: janus-idp-prod
+
+# Janus Showcase
+nameOverride: janus-showcase
+fullnameOverride: janus-showcase-prod
+
+## Certificate Values
+dnsNames: 
+  - showcase.janus-idp.io
+
+## Deployment
+replicas: 1
+
+image:
+  repository: quay.io/janus-idp/backstage-showcase
+  pullPolicy: Always
+  tag: "latest"
+
+resources:
+  limits:
+    cpu: 500m
+  requests:
+    cpu: 400m
+
+oauth:
+  name: oauth2-proxy
+  enabled: false
+  insecure: false
+  cookieSecret: ""
+  image:
+    repository: quay.io/oauth2-proxy/oauth2-proxy
+    pullPolicy: Always
+    tag: "latest"
+  resources:
+    limits:
+      cpu: 100m
+    requests:
+      cpu: 100m
+  port: 4180
+
+## Issuer
+email: team-backstage@redhat.com
+
+# Backstage
+backstage:
+  port: 7007
+  baseUrl: showcase.janus-idp.io

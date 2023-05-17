@@ -1,10 +1,12 @@
+{{- if .Values.dnsNames }}
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: letsencrypt
+  namespace: {{ .Values.namespace }}
 spec:
   acme:
-    email: team-backstage@redhat.com
+    email: {{ .Values.email }}
     privateKeySecretRef:
       name: letsencrypt-key
     server: 'https://acme-v02.api.letsencrypt.org/directory'
@@ -12,3 +14,4 @@ spec:
       - http01:
           ingress:
             serviceType: ClusterIP
+{{- end }}

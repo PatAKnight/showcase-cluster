@@ -1,24 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: backstage
-  namespace: "janus-idp"
+  name: {{ include "showcase-chart.fullname" . }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app.kubernetes.io/component: backstage
-    backstage.io/kubernetes-id: janus-idp
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
   tls:
     - hosts:
-      - showcase.janus-idp.io
+      - {{ .Values.backstage.baseUrl }}
       secretName: janus-idp-cert
   rules:
-    - host: showcase.janus-idp.io
+    - host: {{ .Values.backstage.baseUrl }}
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: backstage
+                name: {{ include "showcase-chart.fullname" . }}
                 port:
-                  number: 7007
+                  number: {{ .Values.oauth.enabled | ternary .Values.oauth.port .Values.backstage.port }}

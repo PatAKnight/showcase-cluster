@@ -1,10 +1,16 @@
+{{- if .Values.dnsNames }}
 apiVersion: cert-manager.io/v1
 kind: Certificate
-metadata:
-  name: ssl-certificate
+metadate:
+  name: {{ include "showcase-chart.fullname" . }}
+  labels:
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
+  {{- with .Values.dnsNames }}
   dnsNames:
-    - showcase.janus-idp.io
+    {{- toYaml . | nindent 6 }}
+  {{- end }}
   issuerRef:
     name: letsencrypt
   secretName: janus-idp-cert
+{{- end }}
