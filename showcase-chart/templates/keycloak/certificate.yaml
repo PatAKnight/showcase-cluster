@@ -1,10 +1,16 @@
+{{- if .Values.keycloak.dnsNames }}
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: keycloak-certificate
+  name: {{ include "showcase-chart.fullname" . }}-keycloak
+  labels:
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
+  {{- with .Values.keycloak.dnsNames }}
   dnsNames:
-    - keycloak.apps.smaug.na.operate-first.cloud
+    {{- toYaml . | nindent 6 }}
+  {{- end }}
   issuerRef:
     name: letsencrypt
   secretName: keycloak-cert
+{{- end }}

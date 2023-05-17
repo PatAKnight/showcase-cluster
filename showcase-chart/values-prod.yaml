@@ -47,3 +47,23 @@ email: team-backstage@redhat.com
 backstage:
   port: 7007
   baseUrl: showcase.janus-idp.io
+
+# Keycloak
+keycloak:
+  dnsNames:
+    - keycloak.apps.smaug.na.operate-first.ch
+
+## DeploymentConfig
+  replicas: 1
+
+  image:
+    repository: quay.io/keycloak/keycloak
+    tag: 20.0.3
+
+## Ingress
+  baseUrl: keycloak.apps.smaug.na.operate-first.ch
+
+## Service
+  service:
+    name: keycloak
+    port: 8080

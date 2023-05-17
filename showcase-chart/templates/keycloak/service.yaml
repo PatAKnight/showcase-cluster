@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: keycloak
+  name: {{ include "showcase-chart.fullname" . }}-keycloak
 spec:
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: {{ .Values.keycloak.service.port}}
+      targetPort: {{ .Values.keycloak.service.port }}
   selector:
     deploymentConfig: keycloak

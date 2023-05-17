@@ -1,9 +1,12 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  name: keycloak
+  name: {{ include "showcase-chart.fullname" . }}-keycloak
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.keycloak.replicas }}
   selector:
     deploymentConfig: keycloak
   strategy:
@@ -19,7 +22,7 @@ spec:
         - envFrom:
             - secretRef:
                 name: janus-idp
-          image: quay.io/keycloak/keycloak:20.0.3
+          image: {{ .Values.keycloak.image.repository }}:{{ .Values.keycloak.image.tag }}
           livenessProbe:
             failureThreshold: 100
             httpGet:

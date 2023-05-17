@@ -35,7 +35,7 @@ spec:
             - secretRef:
                 name: janus-idp
             - secretRef:
-                name: janus-idp-pguser-janus-idp
+                name: {{ include "showcase-chart.fullname" . }}-pguser-{{ include "showcase-chart.fullname" . }}
             - configMapRef:
                 name: {{ include "showcase-chart.fullname" . }}-bucket-claim
             - secretRef:

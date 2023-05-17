@@ -1,20 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: keycloak
+  name: {{ include "showcase-chart.fullname" . }}-keycloak
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
   tls:
     - hosts: 
-      - keycloak.apps.smaug.na.operate-first.cloud #TODO: This will need to change
+      - {{ .Values.keycloak.baseUrl }}
       secretName: keycloak-cert
   rules:
-    - host: keycloak.apps.smaug.na.operate-first.cloud #TODO: This will need to change
+    - host: {{ .Values.keycloak.baseUrl }}
       http:
         paths:
           - pathType: Prefix
             path: "/"
             backend:
               service:
-                name: keycloak
+                name: {{ .Values.keycloak.service.name }}
                 port:
-                  number: 8080
+                  number: {{ .Values.keycloak.service.port }}
