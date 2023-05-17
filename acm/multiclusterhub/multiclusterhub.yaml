@@ -2,6 +2,6 @@ apiVersion: operator.open-cluster-management.io/v1
 kind: MultiClusterHub
 metadata:
   name: multiclusterhub
-  namespace: <namespace> #TODO: This needs to be replaced
+  namespace: open-cluster-management
 spec:
   imagePullSecret: <secret> #TODO: This needs to be replaced
