@@ -1,13 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sonarqube
+  name: {{ include "showcase-chart.fullname" . }}-sonarqube
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
   ports:
-  - name: sonarqube
-    port: 9000
+  - name: {{ .Values.sonarqube.service.name }}
+    port: {{ .Values.sonarqube.service.port }}
     protocol: TCP
-    targetPort: 9000
+    targetPort: {{ .Values.sonarqube.service.port }}
   selector:
     deploymentconfig: sonarqube
   sessionAffinity: None

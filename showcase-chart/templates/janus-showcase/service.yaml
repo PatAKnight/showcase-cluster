@@ -4,7 +4,7 @@ metadata:
   name: {{ include "showcase-chart.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{- include "showcase-chart.labels" . | nindent 4}}
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
   type: ClusterIP
   sessionAffinity: None

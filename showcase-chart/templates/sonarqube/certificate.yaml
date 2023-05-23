@@ -1,10 +1,16 @@
+{{- if .Values.sonarqube.dnsNames }}
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: sonarqube-ssl-certificate
+  name: {{ include "showcase-chart.fullname" . }}-sonarqube
+  labels:
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
+  {{- with .Values.sonarqube.dnsNames }}
   dnsNames:
-    - sonar.apps.smaug.na.operate-first.cloud
+    {{- toYaml . | nindent 6 }}
+  {{- end }}
   issuerRef:
     name: letsencrypt
   secretName: sonarqube-cert
+{{- end }}

@@ -1,21 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sonarqube
-  namespace: "janus-idp" 
+  name: {{ include "showcase-chart.fullname" . }}-sonarqube
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "showcase-chart.labels" . | nindent 4 }}
 spec:
   tls:
     - hosts: 
-      - sonar.apps.smaug.na.operate-first.cloud
+      - {{ .Values.sonarqube.baseUrl }}
       secretName: sonarqube-cert
   rules:
-    - host: sonar.apps.smaug.na.operate-first.cloud
+    - host: {{ .Values.sonarqube.baseUrl }}
       http:
         paths:
           - pathType: Prefix
             path: "/"
             backend:
               service:
-                name: sonarqube
+                name: {{ .Values.sonarqube.service.name }}
                 port:
-                  number: 9000
+                  number: {{ .Values.sonarqube.service.port }}
