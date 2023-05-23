@@ -67,3 +67,22 @@ keycloak:
   service:
     name: keycloak
     port: 8080
+
+# Sonarqube
+sonarqube:
+  dnsNames:
+    - sonar.apps.smaug.na.operate-first.cloud
+
+## DeploymentConfig
+  replicas: 1
+
+  image:
+    repository: 
+
+## Ingress
+  baseUrl: sonar.apps.smaug.na.operate-first.cloud
+
+## Service
+  service:
+    name: sonarqube
+    port: 9000

@@ -6,10 +6,10 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - sonar.apps.smaug.na.operate-first.cloud
+      - son.apps.ci-ln-3bl270t-76ef8.origin-ci-int-aws.dev.rhcloud.com
       secretName: sonarqube-cert
   rules:
-    - host: sonar.apps.smaug.na.operate-first.cloud
+    - host: son.apps.ci-ln-3bl270t-76ef8.origin-ci-int-aws.dev.rhcloud.com
       http:
         paths:
           - pathType: Prefix

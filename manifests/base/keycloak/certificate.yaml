@@ -4,7 +4,7 @@ metadata:
   name: keycloak-certificate
 spec:
   dnsNames:
-    - keycloak.apps.smaug.na.operate-first.cloud
+    - key.apps.ci-ln-3bl270t-76ef8.origin-ci-int-aws.dev.rhcloud.com
   issuerRef:
     name: letsencrypt
   secretName: keycloak-cert
