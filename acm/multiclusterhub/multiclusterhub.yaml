@@ -3,5 +3,4 @@ kind: MultiClusterHub
 metadata:
   name: multiclusterhub
   namespace: open-cluster-management
-spec:
-  imagePullSecret: <secret> #TODO: This needs to be replaced
+spec: {}
