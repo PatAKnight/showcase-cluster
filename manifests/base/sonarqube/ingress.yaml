@@ -6,10 +6,10 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - son.apps.ci-ln-tzfgntb-76ef8.aws-2.ci.openshift.org
+      - son.apps.ci-ln-j5xqvkt-76ef8.aws-2.ci.openshift.org
       secretName: sonarqube-cert
   rules:
-    - host: son.apps.ci-ln-tzfgntb-76ef8.aws-2.ci.openshift.org
+    - host: son.apps.ci-ln-j5xqvkt-76ef8.aws-2.ci.openshift.org
       http:
         paths:
           - pathType: Prefix

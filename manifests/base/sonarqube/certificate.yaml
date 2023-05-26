@@ -4,7 +4,7 @@ metadata:
   name: sonarqube-ssl-certificate
 spec:
   dnsNames:
-    - son.apps.ci-ln-tzfgntb-76ef8.aws-2.ci.openshift.org
+    - son.apps.ci-ln-j5xqvkt-76ef8.aws-2.ci.openshift.org
   issuerRef:
     name: letsencrypt
   secretName: sonarqube-cert
