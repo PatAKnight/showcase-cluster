@@ -1,0 +1,8 @@
+operator:
+  channel: latest
+  installPlanApproval: Automatic
+  name: openshift-gitops-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+operatorgroup:
+  create: false

@@ -1,0 +1,9 @@
+operator:
+  channel: release-2.7
+  installPlanApproval: Automatic
+  name: advanced-cluster-management
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  namespace: open-cluster-management
+operatorgroup:
+  create: true
