@@ -15,8 +15,5 @@ spec:
 {{- if not .Values.operatorgroup.allNamespaces }}
   targetNamespaces:
     - {{ .Release.Namespace }}
-{{- else if .Values.operator.namespace }}
-  targetNamespace:
-    - {{ .Values.operator.namespace }}
 {{- end }}
 {{- end }}
