@@ -1,0 +1,12 @@
+global:
+  host: backstage.apps.example.com
+
+backstage:
+  upstream:
+    ingress:
+      enabled: false
+  route:
+    enabled: true
+    host: "{{ .Values.global.host }}"
+    tls:
+      enabled: false
