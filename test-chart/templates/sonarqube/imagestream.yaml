@@ -2,6 +2,7 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: {{ include "test-chart.fullname" . }}-sonarqube
+  namespace: {{ .Release.Namespace }}
 spec:
   tags:
   - annotations:

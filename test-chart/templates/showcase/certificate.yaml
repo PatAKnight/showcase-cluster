@@ -3,6 +3,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadate:
   name: {{ include "test-chart.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "test-chart.labels" . | nindent 4 }}
 spec:

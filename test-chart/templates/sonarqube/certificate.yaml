@@ -3,6 +3,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: {{ include "test-chart.fullname" . }}-sonarqube
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "test-chart.labels" . | nindent 4 }}
 spec:
