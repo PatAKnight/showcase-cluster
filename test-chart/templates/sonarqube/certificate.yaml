@@ -1,0 +1,16 @@
+{{- if .Values.sonarqube.tls.enabled }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "test-chart.fullname" . }}-sonarqube
+  labels:
+    {{- include "test-chart.labels" . | nindent 4 }}
+spec:
+  {{- with .Values.sonarqube.tls.dnsNames }}
+  dnsNames:
+    {{- toYaml . | nindent 6 }}
+  {{- end }}
+  issuerRef:
+    name: letsencrypt
+  secretName: sonarqube-cert
+{{- end }}
