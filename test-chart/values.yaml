@@ -12,9 +12,8 @@ backstage:
     backstage:
       extraEnvVarsSecrets:
         - janus-idp
-        - "{{ .Release.Name }}-postgresql"
-        - "{{ .Release.Name }}-pguser-{{ .Release.Name }}"
-        - "{{ .Release.Name }}-bucket-claim"
+        - showcase-test-chart-pguser-janus-idp
+        - showcase-test-chart-bucket-claim
     postgresql:
       enabled: false
   route:
