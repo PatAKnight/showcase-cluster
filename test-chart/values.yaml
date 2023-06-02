@@ -4,9 +4,56 @@ global:
 backstage:
   upstream:
     ingress:
-      enabled: false
+      enabled: true
+      tls:
+        enabled: true
+        secretName: janus-idp-cert
+      host: backstage.apps.example.com
   route:
-    enabled: true
-    host: "{{ .Values.global.host }}"
+    enabled: false
+    host: backstage.apps.example.com
     tls:
       enabled: false
+
+## Showcase
+showcase:
+  tls:
+  dnsNames:
+    - showcase.janus-idp.io
+
+## Keycloak
+keycloak:
+  instances: 1
+  realm:
+    name: backstage
+    enabled: true
+    displayName: Backstage Authentication Realm
+    identityProvider:
+      enabled: false
+      clientId: ""
+      clientSecret: ""
+  client:
+    name: backstage
+
+## Sonarqube
+sonarqube:
+  host: sonar.apps.smaug.na.operate-first.cloud
+
+  tls:
+    enabled: true
+    dnsNames:
+    - sonar.apps.smaug.na.operate-first.cloud
+
+  service:
+    name: sonarqube
+    port: 9000
+  
+  replicas: 1
+
+  imageStream:
+    name: sonarqube:9.9-community
+    tag: 9.9-community
+
+## Postgres
+postgres:
+  enabled: true

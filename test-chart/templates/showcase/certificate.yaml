@@ -1,0 +1,16 @@
+{{- if .Values.backstage.upstream.ingress.tls.enabled }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadate:
+  name: {{ include "test-chart.fullname" . }}
+  labels:
+    {{- include "test-chart.labels" . | nindent 4 }}
+spec:
+  {{- with .Values.showcase.dnsNames }}
+  dnsNames:
+    {{- toYaml . | nindent 6 }}
+  {{- end }}
+  issuerRef:
+    name: letsencrypt
+  secretName: janus-idp-cert
+{{- end }}
