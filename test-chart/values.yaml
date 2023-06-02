@@ -6,7 +6,7 @@ backstage:
     ingress:
       enabled: true
       tls:
-        enabled: true
+        enabled: false
         secretName: janus-idp-cert
       host: backstage.apps.example.com
   route:
@@ -40,7 +40,8 @@ sonarqube:
   host: sonar.apps.smaug.na.operate-first.cloud
 
   tls:
-    enabled: true
+    enabled: false
+    secretName: sonar-idp-cert
     dnsNames:
     - sonar.apps.smaug.na.operate-first.cloud
 

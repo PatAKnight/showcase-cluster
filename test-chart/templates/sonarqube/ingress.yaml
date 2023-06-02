@@ -9,7 +9,7 @@ spec:
   tls:
     - hosts: 
       - {{ .Values.sonarqube.host }}
-      secretName: sonarqube-cert
+      secretName: {{ .Values.sonarqube.tls.secretName }}
   rules:
     - host: {{ .Values.sonarqube.host }}
       http:

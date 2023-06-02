@@ -12,5 +12,5 @@ spec:
   {{- end }}
   issuerRef:
     name: letsencrypt
-  secretName: sonarqube-cert
+  secretName: {{ .Values.sonarqube.tls.secretName }}
 {{- end }}
