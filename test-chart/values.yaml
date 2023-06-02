@@ -1,5 +1,5 @@
 global:
-  host: backstage.apps.example.com
+  host: backstage.apps.ci-ln-qbr3t7k-76ef8.aws-2.ci.openshift.org
 
 backstage:
   upstream:
@@ -8,18 +8,30 @@ backstage:
       tls:
         enabled: false
         secretName: janus-idp-cert
-      host: backstage.apps.example.com
+      host: backstage.apps.ci-ln-qbr3t7k-76ef8.aws-2.ci.openshift.org
+    backstage:
+      extraEnvVarsSecrets:
+        - janus-idp
+        - "{{ .Release.Name }}-postgresql"
+        - "{{ .Release.Name }}-pguser-{{ .Release.Name }}"
+        - "{{ .Release.Name }}-bucket-claim"
+    postgresql:
+      enabled: false
   route:
     enabled: false
-    host: backstage.apps.example.com
+    host: backstage.apps.ci-ln-qbr3t7k-76ef8.aws-2.ci.openshift.org
     tls:
       enabled: false
+
+# test:
+#   - configMapRef:
+#       name: {{ include "showcase-chart.fullname" . }}-bucket-claim
 
 ## Showcase
 showcase:
   tls:
   dnsNames:
-    - showcase.janus-idp.io
+    - backstage.apps.ci-ln-qbr3t7k-76ef8.aws-2.ci.openshift.org
 
 ## Keycloak
 keycloak:
@@ -37,13 +49,13 @@ keycloak:
 
 ## Sonarqube
 sonarqube:
-  host: sonar.apps.smaug.na.operate-first.cloud
+  host: sonar.apps.ci-ln-qbr3t7k-76ef8.aws-2.ci.openshift.org
 
   tls:
     enabled: false
     secretName: sonar-idp-cert
     dnsNames:
-    - sonar.apps.smaug.na.operate-first.cloud
+    - sonar.apps.ci-ln-qbr3t7k-76ef8.aws-2.ci.openshift.org
 
   service:
     name: sonarqube
@@ -54,7 +66,3 @@ sonarqube:
   imageStream:
     name: sonarqube:9.9-community
     tag: 9.9-community
-
-## Postgres
-postgres:
-  enabled: true
