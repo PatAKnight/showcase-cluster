@@ -21,7 +21,6 @@ spec:
     metadata:
       annotations:
         openshift.io/container.sonarqube.image.entrypoint: '["./bin/run.sh"]'
-      creationTimestamp: null
       labels:
         deploymentconfig: sonarqube
     spec:
