@@ -2,16 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "test-chart.fullname" . }}-sonarqube
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Release.namespace }}
   labels:
     {{- include "test-chart.labels" . | nindent 4 }}
 spec:
   ports:
-  - name: {{ .Values.sonarqube.service.name }}
+  - name: {{ include "test-chart.fullname" . }}-sonarqube
     port: {{ .Values.sonarqube.service.port }}
     protocol: TCP
     targetPort: {{ .Values.sonarqube.service.port }}
   selector:
-    deploymentconfig: sonarqube
+    deploymentconfig: {{ include "test-chart.fullname" . }}-sonarqube
   sessionAffinity: None
   type: ClusterIP

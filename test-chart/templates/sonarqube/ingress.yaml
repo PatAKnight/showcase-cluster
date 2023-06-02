@@ -2,14 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ include "test-chart.fullname" . }}-sonarqube
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Release.namespace }}
   labels:
     {{- include "test-chart.labels" . | nindent 4 }}
 spec:
+{{- if .Values.sonarqube.tls.enabled }}
   tls:
     - hosts: 
       - {{ .Values.sonarqube.host }}
       secretName: {{ .Values.sonarqube.tls.secretName }}
+{{- end }}
   rules:
     - host: {{ .Values.sonarqube.host }}
       http:
@@ -18,6 +20,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: {{ .Values.sonarqube.service.name }}
+                name: {{ include "test-chart.fullname" . }}-sonarqube
                 port:
                   number: {{ .Values.sonarqube.service.port }}
