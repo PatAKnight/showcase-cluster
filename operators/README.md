@@ -39,3 +39,9 @@ helm install pipelines . -f values-openshift-pipelines.yaml -n openshift-operato
 ```bash
 helm install gitops . -f values-openshiftgitops.yaml -n openshift-operators
 ```
+
+### Red Hat Single Sign-On
+
+```bash
+helm install rhsso . -f values-rhsso.yaml -n janus-idp --create-namespace
+```
