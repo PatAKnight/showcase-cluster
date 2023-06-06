@@ -24,7 +24,6 @@ spec:
       annotations:
         openshift.io/container.sonarqube.image.entrypoint: '["./bin/run.sh"]'
       labels:
-        {{- include "test-chart.labels" . | nindent 8 }}
         deploymentconfig: {{ include "test-chart.fullname" . }}-sonarqube
     spec:
       containers:
