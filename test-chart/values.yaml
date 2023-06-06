@@ -1,5 +1,5 @@
 global:
-  host: backstage.apps.ci-ln-h7yrmpk-76ef8.origin-ci-int-aws.dev.rhcloud.com
+  host: backstage.apps-crc.testing
 
 backstage:
   upstream:
@@ -8,7 +8,7 @@ backstage:
       tls:
         enabled: false
         secretName: janus-idp-cert
-      host: backstage.apps.ci-ln-h7yrmpk-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      host: backstage.apps-crc.testing
     backstage:
       extraEnvVarsSecrets:
         - janus-idp
@@ -18,7 +18,7 @@ backstage:
       enabled: false
   route:
     enabled: false
-    host: backstage.apps.ci-ln-h7yrmpk-76ef8.origin-ci-int-aws.dev.rhcloud.com
+    host: backstage.apps-crc.testing
     tls:
       enabled: false
 
@@ -30,7 +30,7 @@ backstage:
 showcase:
   tls:
     dnsNames:
-      - backstage.apps.ci-ln-h7yrmpk-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      - backstage.apps-crc.testing
 
 ## Keycloak
 keycloak:
@@ -48,13 +48,13 @@ keycloak:
 
 ## Sonarqube
 sonarqube:
-  host: sonar.apps.ci-ln-h7yrmpk-76ef8.origin-ci-int-aws.dev.rhcloud.com
+  host: sonar.apps-crc.testing
 
   tls:
     enabled: false
     secretName: sonar-idp-cert
     dnsNames:
-      - sonar.apps.ci-ln-h7yrmpk-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      - sonar.apps-crc.testing
 
   service:
     name: sonarqube
