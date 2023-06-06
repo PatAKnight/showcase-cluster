@@ -1,8 +1,8 @@
-apiVersion: objectbucket.io/v1alpha1
-kind: ObjectBucketClaim
-metadata:
-  name: {{ include "test-chart.fullname" . }}-bucket-claim
-  namespace: {{ .Release.Namespace }}
-spec:
-  generateBucketName: {{ include "test-chart.fullname" . }}-bucket-claim-
-  storageClassName: openshift-storage.noobaa.io
+# apiVersion: objectbucket.io/v1alpha1
+# kind: ObjectBucketClaim
+# metadata:
+#   name: {{ include "test-chart.fullname" . }}-bucket-claim
+#   namespace: {{ .Release.Namespace }}
+# spec:
+#   generateBucketName: {{ include "test-chart.fullname" . }}-bucket-claim-
+#   storageClassName: openshift-storage.noobaa.io

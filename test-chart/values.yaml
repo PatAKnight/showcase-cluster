@@ -1,5 +1,5 @@
 global:
-  host: backstage.apps-crc.testing
+  host: backstage.apps.ci-ln-fby5d3b-76ef8.aws-2.ci.openshift.org
 
 backstage:
   upstream:
@@ -8,7 +8,7 @@ backstage:
       tls:
         enabled: false
         secretName: janus-idp-cert
-      host: backstage.apps-crc.testing
+      host: backstage.apps.ci-ln-fby5d3b-76ef8.aws-2.ci.openshift.org
     backstage:
       extraEnvVarsSecrets:
         - janus-idp
@@ -18,7 +18,7 @@ backstage:
       enabled: false
   route:
     enabled: false
-    host: backstage.apps-crc.testing
+    host: backstage.apps.ci-ln-fby5d3b-76ef8.aws-2.ci.openshift.org
     tls:
       enabled: false
 
@@ -30,7 +30,7 @@ backstage:
 showcase:
   tls:
     dnsNames:
-      - backstage.apps-crc.testing
+      - backstage.apps.ci-ln-fby5d3b-76ef8.aws-2.ci.openshift.org
 
 ## Keycloak
 keycloak:
@@ -48,13 +48,13 @@ keycloak:
 
 ## Sonarqube
 sonarqube:
-  host: sonar.apps-crc.testing
+  host: sonar.apps.ci-ln-fby5d3b-76ef8.aws-2.ci.openshift.org
 
   tls:
     enabled: false
     secretName: sonar-idp-cert
     dnsNames:
-      - sonar.apps-crc.testing
+      - sonar.apps.ci-ln-fby5d3b-76ef8.aws-2.ci.openshift.org
 
   service:
     name: sonarqube
