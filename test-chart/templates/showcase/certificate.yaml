@@ -7,7 +7,7 @@ metadate:
   labels:
     {{- include "test-chart.labels" . | nindent 4 }}
 spec:
-  {{- with .Values.showcase.dnsNames }}
+  {{- with .Values.showcase.tls.dnsNames }}
   dnsNames:
     {{- toYaml . | nindent 6 }}
   {{- end }}
