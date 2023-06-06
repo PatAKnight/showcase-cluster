@@ -9,7 +9,6 @@ metadata:
 spec:
   replicas: {{ .Values.sonarqube.replicas }}
   selector:
-    {{- include "test-chart.selectorLabels" . | nindent 4 }}
     deploymentconfig: {{ include "test-chart.fullname" . }}-sonarqube
   strategy:
     resources: {}
