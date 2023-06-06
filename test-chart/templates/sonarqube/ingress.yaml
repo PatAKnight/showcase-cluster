@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: {{ include "test-chart.fullname" . }}-sonarqube
   namespace: {{ .Release.namespace }}
-  labels:
-    {{- include "test-chart.labels" . | nindent 4 }}
 spec:
 {{- if .Values.sonarqube.tls.enabled }}
   tls:

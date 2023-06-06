@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: {{ include "test-chart.fullname" . }}-sonarqube
   namespace: {{ .Release.namespace }}
-  labels:
-    {{- include "test-chart.labels" . | nindent 4 }}
 spec:
   ports:
   - name: {{ include "test-chart.fullname" . }}-sonarqube

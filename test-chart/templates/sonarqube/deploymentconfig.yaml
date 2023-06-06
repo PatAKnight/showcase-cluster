@@ -2,7 +2,6 @@ apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
   labels:
-    {{- include "test-chart.labels" . | nindent 4 }}
     deploymentconfig: {{ include "test-chart.fullname" . }}-sonarqube
   name: {{ include "test-chart.fullname" . }}-sonarqube
   namespace: {{ .Release.Namespace }}
