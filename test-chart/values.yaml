@@ -1,14 +1,14 @@
 global:
-  host: backstage.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+  host: back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
 backstage:
   upstream:
     ingress:
       enabled: true
       tls:
-        enabled: false
+        enabled: true
         secretName: janus-idp-cert
-      host: backstage.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      host: back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
     backstage:
       extraEnvVarsSecrets:
         - janus-idp
@@ -27,7 +27,7 @@ backstage:
       enabled: false
   route:
     enabled: false
-    host: backstage.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+    host: back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
     tls:
       enabled: false
 
@@ -35,7 +35,7 @@ backstage:
 showcase:
   tls:
     dnsNames:
-      - backstage.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      - back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
 ## Keycloak
 keycloak:
@@ -53,13 +53,13 @@ keycloak:
 
 ## Sonarqube
 sonarqube:
-  host: sonar.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+  host: son.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
   tls:
-    enabled: false
+    enabled: true
     secretName: sonar-idp-cert
     dnsNames:
-      - sonar.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      - son.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
   service:
     name: sonarqube
