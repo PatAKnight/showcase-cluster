@@ -1,7 +1,7 @@
 {{- if .Values.backstage.upstream.ingress.tls.enabled }}
 apiVersion: cert-manager.io/v1
 kind: Certificate
-metadate:
+metadata:
   name: {{ include "test-chart.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
