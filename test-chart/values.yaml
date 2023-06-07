@@ -13,18 +13,18 @@ backstage:
       extraEnvVarsSecrets:
         - janus-idp
         - showcase-test-chart-pguser-janus-idp
+      extraVolumes:
+        - name: ca-cert
+          secret:
+            secretName: showcase-test-chart-cluster-cert
+            items:
+              - key: ca.crt
+                path: ca.crt
+      extraVolumeMounts:
+        - name: ca-cert
+          mountPath: "/mnt/certs"
     postgresql:
       enabled: false
-    extraVolumes:
-      - name: ca-cert
-        secret:
-          secretName: showcase-test-chart-cluster-cert
-          items:
-            - key: ca.crt
-              path: ca.crt
-    extraVolumeMounts:
-      - name: ca-cert
-        mountPath: "/mnt/certs"
   route:
     enabled: false
     host: backstage.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
