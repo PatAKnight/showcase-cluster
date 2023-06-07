@@ -33,7 +33,8 @@ backstage:
 
 ## Showcase
 showcase:
-  issuer: pknight@redhat.com
+  issuer: 
+    email: pknight@redhat.com
   tls:
     dnsNames:
       - back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
