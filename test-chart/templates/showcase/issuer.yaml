@@ -1,0 +1,16 @@
+{{- if .Values.backstage.upstream.ingress.tls.enabled }}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    email: {{ .Values.showcase.issuer.email }}
+    privateKeySecretRef:
+      name: letsencrypt-key
+    server: 'https://acme-v02.api.letsencrypt.org/directory'
+    solvers:
+      - http01:
+          ingress:
+            serviceType: ClusterIP
+{{- end }}
