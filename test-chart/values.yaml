@@ -13,7 +13,6 @@ backstage:
       extraEnvVarsSecrets:
         - janus-idp
         - showcase-test-chart-pguser-janus-idp
-        - showcase-test-chart-bucket-claim
     postgresql:
       enabled: false
   route:
@@ -21,10 +20,6 @@ backstage:
     host: backstage.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
     tls:
       enabled: false
-
-# test:
-#   - configMapRef:
-#       name: {{ include "showcase-chart.fullname" . }}-bucket-claim
 
 ## Showcase
 showcase:
