@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "test-chart.fullname" . }}-keycloak
+  namespace: {{ .Release.namespace }}
+spec:
+  ports:
+  - name: {{ include "test-chart.fullname" . }}-keycloak
+    port: {{ .Values.keycloak.service.port }}
+    protocol: TCP
+    targetPort: {{ .Values.keycloak.service.port }}
+  selector:
+    deploymentconfig: {{ include "test-chart.fullname" . }}-keycloak
+  sessionAffinity: None
+  type: ClusterIP

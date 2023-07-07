@@ -1,22 +1,24 @@
 global:
-  host: back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+  host: show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
 
 backstage:
   upstream:
+    commonLabels:
+      backstage.io/kubernetes-id: janus-idp
     ingress:
       enabled: true
       tls:
-        enabled: true
+        enabled: false
         secretName: janus-idp-cert
-      host: back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      host: show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
     backstage:
       extraEnvVarsSecrets:
         - janus-idp
-        - showcase-test-chart-pguser-janus-idp
+        - janus-idp-showcase-pguser-janus-idp
       extraVolumes:
         - name: ca-cert
           secret:
-            secretName: showcase-test-chart-cluster-cert
+            secretName: janus-idp-showcase-cluster-cert
             items:
               - key: ca.crt
                 path: ca.crt
@@ -27,7 +29,7 @@ backstage:
       enabled: false
   route:
     enabled: false
-    host: back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+    host: show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
     tls:
       enabled: false
 
@@ -37,31 +39,37 @@ showcase:
     email: pknight@redhat.com
   tls:
     dnsNames:
-      - back.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      - show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
 
 ## Keycloak
 keycloak:
-  instances: 1
-  realm:
-    name: backstage
-    enabled: true
-    displayName: Backstage Authentication Realm
-    identityProvider:
-      enabled: false
-      clientId: ""
-      clientSecret: ""
-  client:
-    name: backstage
+  host: key.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+
+  tls:
+    enabled: false
+    secretName: keycloak-idp-cert
+    dnsNames:
+      - key.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+
+  service:
+    name: keycloak
+    port: 8080
+
+  replicas: 1
+
+  image:
+    repository: quay.io/keycloak/keycloak
+    tag: 20.0.3
 
 ## Sonarqube
 sonarqube:
-  host: son.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+  host: son.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
 
   tls:
-    enabled: true
+    enabled: false
     secretName: sonar-idp-cert
     dnsNames:
-      - son.apps.ci-ln-wxsplik-76ef8.origin-ci-int-aws.dev.rhcloud.com
+      - son.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
 
   service:
     name: sonarqube

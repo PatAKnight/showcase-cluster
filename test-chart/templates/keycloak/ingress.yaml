@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "test-chart.fullname" . }}-keycloak
+  namespace: {{ .Release.namespace }}
+spec:
+{{- if .Values.keycloak.tls.enabled }}
+  tls:
+    - hosts: 
+      - {{ .Values.keycloak.host }}
+      secretName: {{ .Values.keycloak.tls.secretName }}
+{{- end }}
+  rules:
+    - host: {{ .Values.keycloak.host }}
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: {{ include "test-chart.fullname" . }}-keycloak
+                port:
+                  number: {{ .Values.keycloak.service.port }}
