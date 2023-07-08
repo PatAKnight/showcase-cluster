@@ -1,5 +1,5 @@
 global:
-  host: show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+  host: show.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
 backstage:
   upstream:
@@ -10,7 +10,7 @@ backstage:
       tls:
         enabled: false
         secretName: janus-idp-cert
-      host: show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+      host: show.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
     backstage:
       extraEnvVarsSecrets:
         - janus-idp
@@ -29,7 +29,7 @@ backstage:
       enabled: false
   route:
     enabled: false
-    host: show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+    host: show.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
     tls:
       enabled: false
 
@@ -39,17 +39,17 @@ showcase:
     email: pknight@redhat.com
   tls:
     dnsNames:
-      - show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+      - show.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
 ## Keycloak
 keycloak:
-  host: key.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+  host: key.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
   tls:
     enabled: false
     secretName: keycloak-idp-cert
     dnsNames:
-      - key.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+      - key.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
   service:
     name: keycloak
@@ -63,13 +63,13 @@ keycloak:
 
 ## Sonarqube
 sonarqube:
-  host: son.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+  host: son.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
   tls:
     enabled: false
     secretName: sonar-idp-cert
     dnsNames:
-      - son.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
+      - son.apps.ci-ln-b2479zt-76ef8.origin-ci-int-aws.dev.rhcloud.com
 
   service:
     name: sonarqube
