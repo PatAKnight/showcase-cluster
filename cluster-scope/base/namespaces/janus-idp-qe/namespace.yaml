@@ -3,4 +3,4 @@ apiVersion: v1
 kind: Namespace
 metadata:
   openshift.io/display-name: janus-idp-qe
-name: janus-idp-qe
+  name: janus-idp-qe
