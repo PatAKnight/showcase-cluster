@@ -1,0 +1,6 @@
+# Copy the stuff from the namespace in ROSA cluster
+apiVersion: v1
+kind: Namespace
+metadata:
+  openshift.io/display-name: janus-idp-dev
+name: janus-idp-dev
