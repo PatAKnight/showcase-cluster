@@ -4,4 +4,4 @@ resources:
 - namespace.yaml
 namespace: janus-idp-prod
 components:
-  - ../../../components/project-admin-rolebindins/janus-idp
+  - ../../../components/project-admin-rolebindings/janus-idp
