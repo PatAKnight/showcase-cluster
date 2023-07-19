@@ -1,13 +1,10 @@
-global:
-  host: show.apps.ci-ln-z4px7n2-76ef8.aws-2.ci.openshift.org
-
 backstage:
   upstream:
     backstage:
       appConfig:
         app:
           title: Janus IDP Backstage Showcase
-          baseUrl: https://{{ .Values.global.host }}
+          baseUrl: ${APP_BASE_URL}
           # Plugin: Segment
           analytics:
             segment:
@@ -25,7 +22,7 @@ backstage:
           # auth:
           #   keys:
           #     - secret: ${BACKEND_SECRET}
-          baseUrl: https://{{ .Values.global.host }}
+          baseUrl: ${BACKEND_BASE_URL}
           listen:
             port: 7007
             # Uncomment the following host directive to bind to specific interfaces
@@ -45,7 +42,7 @@ backstage:
               # Allow your Jira instance for @roadiehq/backstage-plugin-jira
               - ${JIRA_URL}
           cors:
-            origin: https://{{ .Values.global.host }}
+            origin: ${CORS_ORIGIN}
             methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
             credentials: true
           # This is for local development only, it is not recommended to use this in production
