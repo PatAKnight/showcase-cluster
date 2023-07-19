@@ -1,3 +1,4 @@
+{{- if .Values.sonarqube.enabled }}
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
@@ -88,3 +89,4 @@ spec:
         kind: ImageStreamTag
         name: {{ .Values.sonarqube.imageStream.name }}
     type: ImageChange
+{{- end }}

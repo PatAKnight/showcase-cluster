@@ -1,3 +1,4 @@
+{{- if .Values.keycloak.enabled }}
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
@@ -64,3 +65,4 @@ spec:
           emptyDir: {}
   triggers:
     - type: ConfigChange
+{{- end }}

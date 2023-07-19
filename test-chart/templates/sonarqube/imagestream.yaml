@@ -1,3 +1,4 @@
+{{- if .Values.sonarqube.enabled }}
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
@@ -13,3 +14,4 @@ spec:
       name: {{ .Values.sonarqube.imageStream.name }}
     importPolicy: {}
     name: {{ .Values.sonarqube.imageStream.tag }}
+{{- end }}
