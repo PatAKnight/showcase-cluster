@@ -14,11 +14,11 @@ backstage:
     backstage:
       extraEnvVarsSecrets:
         - janus-idp
-        - janus-idp-showcase-pguser-janus-idp
+        - janus-idp-test-chart-pguser-janus-idp
       extraVolumes:
         - name: ca-cert
           secret:
-            secretName: janus-idp-showcase-cluster-cert
+            secretName: janus-idp-test-chart-cluster-cert
             items:
               - key: ca.crt
                 path: ca.crt
