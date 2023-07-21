@@ -163,13 +163,15 @@ backstage:
                 accessKeyId: ${AWS_ACCESS_KEY_ID}
                 secretAccessKey: ${AWS_SECRET_ACCESS_KEY}
 
+        # Setting the environment to production will allow oauth2 sign on. need to set github.production
+        # Setting the environment to development will allow for github and guest sign on. need to set github.development
         auth:
           # see https://backstage.io/docs/auth/ to learn about auth providers
           environment: production
           providers:
             # Plugin: GitHub
             github:
-              development:
+              production:
                 clientId: ${GITHUB_APP_CLIENT_ID}
                 clientSecret: ${GITHUB_APP_CLIENT_SECRET}
             oauth2Proxy: {}
