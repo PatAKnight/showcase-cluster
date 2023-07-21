@@ -165,13 +165,14 @@ backstage:
 
         auth:
           # see https://backstage.io/docs/auth/ to learn about auth providers
-          environment: development
+          environment: production
           providers:
             # Plugin: GitHub
             github:
               development:
                 clientId: ${GITHUB_APP_CLIENT_ID}
                 clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+            oauth2Proxy: {}
 
         scaffolder:
           # see https://backstage.io/docs/features/software-templates/configuration for software template options
